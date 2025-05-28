@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getir Clone</title>
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    /> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    
+    
+
+    <style>
+        @font-face {
+    font-family: "Open Sans";
+    src: url("wwwroot/assets/fonts/CoconRegularFont.otf") format("truetype");
+    font-weight: 700; }
+    
+ * {
+            text-decoration: none !important;
+            list-style-type: none;
+            font-family: "Open Sans",sans-serif;
+        }
+html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #FFFFFF;    
+        overflow-x: hidden;
+      }
+.navbarX {
+         position: sticky;
+         top: 0;
+         background-color: #4C3398;
+         padding: 1rem;
+         
+      }
+.navbar-container {
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex ;
+        justify-content: space-between;
+      }
+.menu-left, .menu-right {
+       display: flex;
+       padding: 0;
+       margin: 0;
+       font-family: "Open Sans", sans-serif;
+       font-weight: 700;
+       font-size: 1rem;
+}
+.menu-right {
+  margin-right: 200px; 
+}
+.menu-left li a,
+.menu-right li a {
+    color: #fff;
+    padding: 0.5rem;
+    transition: color 0.3s;
+    
+}
+.menu-left li a:hover, .menu-left li a.active {
+    color: #FFD700;
+    border: 1px;
+    border-radius: 8px 8px 0 0;
+    background-color: #5D3EBC;
+    padding-bottom: 16px;
+}
+.menu-right li a {
+   font-size: 0.88rem;
+   font-family: "Open Sans", sans-serif; 
+}
+.main {
+  background-color: #5D3EBC;
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    height: 400px;
+    color:white;
+    
+    
+  
+}
+ .main-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 12rem;
+    flex: 1;
+    color: #fff; 
+    
+    
+}
+.main-left img {
+            max-width: 200px;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+.main-left h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+.main-right {
+            flex: 1;
+            text-align: center;
+            color: #6C56C0;
+            padding: 2rem;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #f9f9f9;
+            border-radius: 8px;
+            background-color: #FAFAFA;  
+            max-width: 350px;
+            margin-right: 280px; 
+                                         
+        }
+
+.main-right h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 16px;
+      
+            
+        }
+
+.main-right input[type="tel"] {
+            padding: 0.8rem;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+.main-right input[type="submit"] {
+            padding: 0.8rem;
+            background: #FFD700;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            color: #4C3398;
+        }
+
+.main-right input[type="submit"]:hover {
+            background: #4C3398;
+            color:#FFD700
+            
+            
+        }
+.categories {
+            display:flex;
+            margin-top: 20px;
+            flex-direction: column;
+            align-items:center;
+            justify-content: space-between;
+        }
+.categories-content {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(2, 1fr);                   
+        }
+            
+.categories-content-box img {
+            border-radius: 8px;
+            border: 2px solid #f0eded;
+            width: 48px;
+            height: 48px;
+            display: block;
+            margin: 0 auto;     
+        }
+      
+.categories h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #191919;
+            
+        }
+
+.categories-content h3 {
+         font-size: 15px;
+         color: #3e3e3e;
+         padding: 0.2rem;
+         font-family:"Helvetica Neue", Arial, "sans-serif";  
+         text-align: center;
+        }
+.categories-content-box:hover h3 {    
+          color: #4C3398;   
+        }  
+.feature {
+          background-image: url(../wwwroot/img/doodle.png);
+          max-width: 1250px;
+          border-radius: 8px;
+          background-color: #5C3EBC;
+          margin: 0 auto;
+          min-height: 312px;
+          position: relative;
+          overflow: visible;
+          margin-top: 50px;
+        }  
+.feature-inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0 30px;
+        position: relative;
+        color:white;
+      }
+.left-content{
+        max-width: 500px;
+        z-index: 2;
+        margin-left: 20px;
+      }
+.left-content h2{
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        margin-top: 80px;
+        
+      }
+.left-content p{
+        font-size: 20px;
+      }
+.phone-img{
+        position: absolute;
+        right: 0px;
+        bottom: 0px; 
+      }
+.bottom-boxes{
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      max-width:1200px;
+      margin: 0 auto;
+      margin-top: 80px;
+}     
+.bottom-boxes h3{
+        color:#5C3EBC;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+.bottom-boxes p{
+        color:#697488;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+.bottom-boxes  div {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        padding:5px;
+      }
+#categories-header {
+    align-self: flex-start; 
+    text-align: left; 
+    padding-left: 19rem;
+    
+}
+.footer{
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: auto;
+margin-left: 300px;
+background-color: #FFFFFF;
+
+}
+.footer h2{
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ font-size: 18px;
+ color:#5C3EBC;
+ font-weight:400;
+}
+.footer ul li a{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:black;
+  font-size:14px;
+  
+}
+.footer ul li{
+  margin-bottom:10px;
+}
+.footer-qr img{
+  margin-top:70px;
+  height: 90px;
+  margin-right: 350px; 
+}
+.b-footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-top: 1px solid #e0e0e0; 
+  padding-top: 1rem;
+  margin-top: 2rem;
+
+}
+.b-footer-left, .b-footer-right{
+  display:flex;
+  cursor: pointer;
+}
+.b-footer-left{
+  margin-left:320px;
+  font-size: 13px;
+  gap:10px;
+  
+}
+.b-footer-right{
+  margin-right:320px;
+  gap:10px;
+}
+.b-footer-left p{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.b-footer-right i {
+color: #8d9096;
+}
+.b-footer-right i:hover {
+    color: #5C3EBC; 
+    transition: color 0.3s ease;
+}
+.responsive-login{
+  display:none;
+}
+.responsive-download{
+  display:none;
+}
+.accordion-item{
+  display:none;
+}
+@media (max-width: 768px) {
+  .navbar {
+    height:15px;
+  }
+  .menu-left{
+    font-size:14px;
+    
+  }
+  .menu-right{
+    display: none;
+  }
+  .main{
+    height: 10px;
+    background-image: url(../wwwroot/img/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;  
+  }
+  .main-left{
+    display:none;
+  }
+  .main-right{
+    display:none;
+  }
+  .responsive-login {
+            
+            
+            color: #6C56C0;
+            padding: 2rem;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #f9f9f9;
+            border-radius: 8px;
+            background-color: #FAFAFA;  
+            height:100%;
+            width:80%;
+                                  
+        }
+
+.responsive-login h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 16px;
+        }
+
+.responsive-login input[type="tel"] {
+            padding: 0.8rem;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+.responsive-login input[type="submit"] {
+            padding: 0.8rem;
+            background: #FFD700;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            color: #4C3398;
+        }
+
+.responsive-login input[type="submit"]:hover {
+            background: #4C3398;
+            color:#FFD700
+            
+        }
+.categories-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;                   
+        }
+#categories-header {
+            padding-left: 0;
+            margin-left: 20px;    
+}
+.phone-img{
+  display:none;
+}
+.feature{
+  background-image: none;
+  border-radius: 0;
+
+}
+.bottom-boxes{
+  display:block;  
+}
+.footer{
+  display:block; 
+  margin: 0 auto;
+}
+.qr-img{
+  display: none;
+}
+.b-footer{
+  display:block;
+}
+.b-footer-left{
+  margin: 0 auto;
+  display: block;
+  text-align: center;  
+}
+.b-footer-right{
+  margin-left: 150px;
+}
+.footer{
+  display:none;
+}
+.accordion-button {
+  background-color: transparent !important;
+  box-shadow: none !important; 
+  color: #5c2d91;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: transparent !important; 
+  color: #5c2d91;
+
+}
+
+.accordion-item {
+  border: none; 
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.responsive-download{
+  display:block;
+  color:#5C3EBC;
+  display: grid;
+  
+  
+}
+.responsive-download h2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:16px;
+}
+.accordion-item{
+  display:block;
+}
+
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="navbarX">
+<div class="navbar-container">
+     <ul class="menu-left">
+                <li><a href="" id="getirmenu">getir</a> </li>
+                <li><a href="">getiryemek</a></li>
+                <li><a href="">getirbüyük</a></li>
+                <li><a href="">getirsu</a></li>
+                <li><a href="">getirçarşı</a></li>
+            </ul>
+    <ul class="menu-right">
+       
+                
+                <li><a href=""><i class="fas fa-globe"></i> Türkçe (TR)</a></li>
+    <li><a href=""><i class="fas fa-user"></i> Giriş yap</a></li>
+    <li><a href=""><i class="fas fa-user-plus"></i> Kayıt Ol</a></li>
+                </ul>
+</div>
+    </header>
+    <section class="main">
+    <div class="main-left">
+        <img src="wwwroot/img/getir.svg" alt="">
+<h1>Dakikalar içinde kapında</h1>
+    </div>
+    <div class="main-right">
+        <h2>Giriş yap veya kayıt ol</h2>
+        <input type="tel" name="" id=""  placeholder="Telefon Numarası"> 
+        <input type="submit" value="Telefon numarası ile devam et">
+    </div>
+    </section>
+
+     <div class="responsive-login">
+        <h2>Giriş yap veya kayıt ol</h2>
+        <input type="tel" name="" id=""  placeholder="Telefon Numarası"> 
+        <input type="submit" value="Telefon numarası ile devam et">
+    </div>
+
+    <section class="categories">
+      <div id="categories-header">
+        <h3>Kategoriler</h3></div>
+        <section class="categories-content">
+            <a href="" class="categories-content-box"> <img src="../wwwroot/img/atistirmalik.webp" alt="">
+          <h3>Atıştırmalık</h3>
+        </a>
+        <a href="" class="categories-content-box"> <img src="../wwwroot/img/icecek.webp" alt="">
+          <h3>Su & İçecek</h3>
+        </a>
+        <a href="" class="categories-content-box"> <img src="../wwwroot/img/sebze.webp" alt="">
+          <h3>Meyve & Sebze</h3>
+        </a>
+        <a href="" class="categories-content-box"><img src="../wwwroot/img/sut.webp" alt="">
+          <h3>Süt Ürünleri</h3>
+        </a>
+        <a href="" class="categories-content-box"> <img src="../wwwroot/img/kahvalti.webp" alt="">
+          <h3>Kahvaltılık</h3>
+        </a>
+        <a href="" class="categories-content-box"><img src="../wwwroot/img/firin.webp" alt="">
+          <h3>Fırından</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/dondurma.webp" alt="">
+          <h3>Dondurma</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/temel.webp" alt="">
+          <h3>Temel Gıda</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/yiyecek.webp" alt="">
+          <h3>Yiyecek</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/et.webp" alt="">
+          <h3>Et, Tavuk & Balık</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/fit.webp" alt="">
+          <h3>Fit & Form</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/kisisel.webp" alt="">
+          <h3>Kişisel Bakım</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/bakim.webp" alt="">
+          <h3>Ev Bakım</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/yasam.webp" alt="">
+          <h3>Ev & Yaşam</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/hayvan.webp" alt="">
+          <h3>Evcil Hayvan</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/bebek.webp" alt="">
+          <h3>Bebek</h3>
+        </a>
+         <a href="" class="categories-content-box"><img src="../wwwroot/img/cinsel.webp" alt="">
+          <h3>Cinsel Sağlık</h3>
+        </a>
+        </section>
+    </section>
+    
+    <section class="feature">
+        <div class="feature-inner">
+            <div class="left-content">
+                <h2>Getir'i indir!</h2>
+                <div class="info-box">
+                    <p>İstediğiniz ürünleri dakikalar içinde kapınıza getirelim.</p>
+                    <img src="wwwroot/img/appstore.svg" alt="" class="appstore-img">
+                    <img src="wwwroot/img/googleplay.svg" alt="" class="googleplay-img">
+                    <img src="wwwroot/img/appgallery.svg" alt="" class="appgallery-img">
+                </div>
+            </div>
+        </div>
+        <img src="../wwwroot/img/phoneLanding.png" alt="" class="phone-img">
+    </section>
+
+    <section class="bottom-boxes">
+        <div class="box-1"><img src="../wwwroot/img/box1.svg" alt=""><h3>Her siparişine bir kampanya</h3>
+    <p>Getir’de vereceğin her siparişe uygun bir kampanya bulabilirsin.</p></div>
+        <div class="box-2"><img src="../wwwroot/img/box2.svg" alt=""><h3>Dakikalar içinde kapında</h3>
+    <p>Getir’le siparişin dakikalar içinde kapına gelir.</p></div>
+        <div class="box-3"><img src="../wwwroot/img/box3.svg" alt=""> <h3>Binlerce çeşit mutluluk</h3>
+    <p>Getir’de binlerce çeşit arasından seçimini yapabilirsin.</p></div>
+    </section>
+
+<section class="footer">
+    <ul>
+          <h2>Getir'i indir!</h2>
+          <li><img src="wwwroot/img/appstore.svg" alt="" class="appstore-img"></li>
+          <li><img src="wwwroot/img/googleplay.svg" alt="" class="googleplay-img"></li>
+          <li><img src="wwwroot/img/appgallery.svg" alt="" class="appgallery-img"></li>
+        </ul>
+         <ul>
+          <h2>Getir'i keşfet</h2>
+          <li><a href="">Hakkımızda</a></li>
+          <li><a href="">Kariyer</a></li>
+          <li><a href="">Teknoloji Kariyerleri</a></li>
+          <li><a href="">İletişim</a></li>
+          <li><a href="">Sosyal Sorumluluk Projeleri</a></li>
+          <li><a href="">Basın Bültenleri</a></li>
+        </ul>
+         <ul>
+          <h2>Yardıma mı ihtiyacın var?</h2>
+          <li><a href="">Sıkça Sorulan Sorular</a></li>
+          <li><a href="">Kişisel Verilerin Korunması</a></li>
+          <li><a href="">Gizlilik Politikası</a></li>
+          <li><a href="">Kullanım Koşulları</a></li>
+          <li><a href="">Çerez Politikası</a></li>
+          <li><a href="">İşlem Rehberi</a></li>
+        </ul>
+         <ul>
+          <h2>İş Ortağımız Ol</h2>
+          <li><a href="">Bayimiz Olun</a></li>
+          <li><a href="">Deponu Kirala</a></li>
+          <li><a href="">GetirYemek Restoranı Ol</a></li>
+          <li><a href="">GetirÇarşı İşletmesi Ol</a></li>
+          <li><a href="">Zincir Restoranlar</a></li>
+        </ul>
+        <section class="footer-qr"><img src="wwwroot/img/qr.png" alt="" class="qr-img">
+</section>
+</section>
+<div class="responsive-download">
+   <ul>
+          <h2>Getir'i indir!</h2>
+          <li><img src="wwwroot/img/appstore.svg" alt="" class="appstore-img"></li>
+          <li><img src="wwwroot/img/googleplay.svg" alt="" class="googleplay-img"></li>
+          <li><img src="wwwroot/img/appgallery.svg" alt="" class="appgallery-img"></li>
+        </ul>
+</div>
+<div class="accordion" id="footerAccordion">
+ 
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+        Getir'i keşfet
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+      <div class="accordion-body">
+        <ul class="list-unstyled mb-0">
+          <li><a href="">Hakkımızda</a></li>
+          <li><a href="">Kariyer</a></li>
+          <li><a href="">Teknoloji Kariyerleri</a></li>
+          <li><a href="">İletişim</a></li>
+          <li><a href="">Sosyal Sorumluluk Projeleri</a></li>
+          <li><a href="">Basın Bültenleri</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+        Yardıma mı ihtiyacın var?
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+      <div class="accordion-body">
+        <ul class="list-unstyled mb-0">
+          <li><a href="">Sıkça Sorulan Sorular</a></li>
+          <li><a href="">Kişisel Verilerin Korunması</a></li>
+          <li><a href="">Gizlilik Politikası</a></li>
+          <li><a href="">Kullanım Koşulları</a></li>
+          <li><a href="">Çerez Politikası</a></li>
+          <li><a href="">İşlem Rehberi</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+        İş Ortağımız Ol
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+      <div class="accordion-body">
+       
+        <ul class="list-unstyled mb-0">
+          <li><a href="">Bayimiz Olun</a></li>
+          <li><a href="">Deponu Kirala</a></li>
+          <li><a href="">GetirYemek Restoranı Ol</a></li>
+          <li><a href="">GetirÇarşı İşletmesi Ol</a></li>
+          <li><a href="">Zincir Restoranlar</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="b-footer">
+  <div class="b-footer-left">
+  <p class="copyright">© 2025 Getir</p>
+  <p class="company" style="color: #5C3EBC">• Bilgi Toplumu Hizmetleri</p>
+  </div>
+  <div class="b-footer-right">
+  <i class="fa-brands fa-facebook "></i>
+  <i class="fa-brands fa-instagram " ></i>
+  <i class="fa-brands fa-twitter "></i>
+  <a href="" style="color: #8d9096"><i class="fas fa-globe" style="color: #8d9096"></i> Türkçe (TR)</a>
+  </div>
+</section>
+
+
+  
+<script>
+    const menuItems = document.querySelectorAll('.menu-left li a');
+    const getirMenu = document.querySelector('.menu-left li:first-child a');
+    if (getirMenu) {
+        getirMenu.classList.add('active');
+    }
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            menuItems.forEach(i => i.classList.remove('active'));
+            
+            item.classList.add('active');
+        });
+    });
+</script>
+    
+</body>
+</html>
