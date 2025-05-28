@@ -25,7 +25,7 @@ https://delightful-daffodil-49ebaf.netlify.app
 
 
 
-📖Notlar
+## 📖Notlar
 
 Bu proje yalnızca eğitim amaçlıdır ve ticari kullanım için değildir.
 
