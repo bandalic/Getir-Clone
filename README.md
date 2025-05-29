@@ -11,7 +11,7 @@ Bu proje, **getir.com**'un bir klonunu oluşturmak amacıyla geliştirilmiş bir
 
 
 ## 📸 Demo
-https://delightful-daffodil-49ebaf.netlify.app
+https://extraordinary-kataifi-7a9687.netlify.app
 
 
 ## 🚀 Özellikler
