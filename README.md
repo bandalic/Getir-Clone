@@ -11,7 +11,7 @@ Bu proje, **getir.com**'un bir klonunu oluşturmak amacıyla geliştirilmiş bir
 
 
 ## 📸 Demo
-https://extraordinary-kataifi-7a9687.netlify.app
+https://jolly-tartufo-cdf5bd.netlify.app
 
 
 ## 🚀 Özellikler
